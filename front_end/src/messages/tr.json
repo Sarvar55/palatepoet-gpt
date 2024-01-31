@@ -1,0 +1,88 @@
+{
+  "navigations": {
+    "pricing": {
+      "href": "/",
+      "label": "Fiyatlandırma"
+    },
+    "blog": {
+      "href": "/",
+      "label": "Blog"
+    },
+    "faq": {
+      "href": "/",
+      "label": "SSS"
+    },
+    "become-a-creator": {
+      "href": "/",
+      "label": "Yaratıcı Ol"
+    }
+  },
+  "modes": {
+    "dark": "Karanlık",
+    "light": "Aydınlık",
+    "system": "Sistem"
+  },
+  "menu": {
+    "kitchen": "Mutfak",
+    "setting": "Ayarlar",
+    "theme": "Tema",
+    "signout": "Çıkış Yap"
+  },
+  "page": {
+    "home": {
+      "greating": "ŞefGPT ile Tanışın",
+      "title_1": "Bir Daha",
+      "title_2": "Akşam Yemeği İçin Endişelenmeyin!",
+      "description": "Sıkıcı yemeklere veda edin, yapay zeka destekli tarif önerileri, yemek planı oluşturma ve daha fazlası... Şu ana kadar 100.000'den fazla akşam yemeği kurtarıldı.",
+      "creditCardDesc": "Kredi kartı gerektirmez",
+      "getStartedButton": "Ücretsiz Başla"
+    },
+    "chef": {
+      "bookmark": "Tarif Defteri",
+      "shoplist": "Alışveriş Listesi",
+      "masterchef": "Usta Şef",
+      "collapseSidebar": "Kenar Çubuğunu Daralt",
+      "oneQuestion": "Hangi malzemelere sahipsiniz? Listeden seçin veya eklemek istediğiniz malzemeyi arama kutusuna yazın. Not: Standart listede bulunmayan herhangi bir malzemeyi sadece yazarak ekleyebilirsiniz.",
+      "twoQuestion": "Hangi yemeği yapmak istersiniz?",
+      "thirdQuestion": "Hangi mutfak araçlarına sahipsiniz?",
+      "fourQuestion": "Ne kadar zamanınız var?",
+      "fiveQuestion": "İyi bir aşçı mısınız?",
+      "addButton": "Malzemelerinizi Ekleyin"
+    },
+    "shoplist": {
+      "emptyListDesc": "Alışveriş Listesine hiçbir öğe eklemediniz"
+    },
+    "cookbook": {
+      "emptyRecipeDesc": "Kitapçağına henüz hiç tarif eklemedin",
+      "btn": "Tarifler"
+    },
+    "settings": {
+      "mydetails": "Benim Hakkımda",
+      "email": "E-Posta",
+      "password": "Şifre",
+      "profilepage": {
+        "mydetails": "Detaylarım",
+        "mngProfile": "Profil ayrıntılarınızı yönetin",
+        "name": "Adınız",
+        "email": "E-posta adresiniz",
+        "password": "Telefon Numaranız",
+        "btnupdate": "Profili Güncelle"
+      },
+      "emailpage": {
+        "descupdateemail": "E-posta adresinizi güncelleyin",
+        "yourmail": "Yeni e-posta adresiniz",
+        "repeatemail": "E-postayı Tekrarla",
+        "password": "Şifreniz",
+        "btnupdateemail": "E-posta Adresini Güncelle"
+      },
+      "passwordpage": {
+        "password": "Şifre",
+        "descupdatepassword": "Şifrenizi güncelleyin",
+        "currentpassword": "Geçerli Şifre",
+        "newpassword": "Yeni Şifre",
+        "reptnewPas": "Yeni Şifreyi Tekrarla",
+        "btnupdtpassword": "Şifreyi Güncelle"
+      }
+    }
+  }
+}

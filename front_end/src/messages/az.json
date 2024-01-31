@@ -1,0 +1,88 @@
+{
+  "navigations": {
+    "pricing": {
+      "href": "/",
+      "label": "Qiymətləndirmə"
+    },
+    "blog": {
+      "href": "/",
+      "label": "Blog"
+    },
+    "faq": {
+      "href": "/",
+      "label": "FAQ"
+    },
+    "become-a-creator": {
+      "href": "/",
+      "label": "Yaratıcı ol"
+    }
+  },
+  "modes": {
+    "dark": "Tünd",
+    "light": "İşıqlı",
+    "system": "Sistem"
+  },
+  "menu": {
+    "kitchen": "Mətbəx",
+    "setting": "Tənzimləmələr",
+    "theme": "Tema",
+    "signout": "Çıxış et"
+  },
+  "page": {
+    "home": {
+      "greating": "ŞefGPT ilə Tanışın",
+      "title_1": "Bir daha",
+      "title_2": "axşam yeməyi üçün narahat olmayın!",
+      "description": "Sıradan yeməklələlə veda edin, AI-güclü resept təklifləri, yemək planları hazırlama və daha çox... Şu ana qədər 100,000-dən artıq axşam yeməyi qurtarıldı.",
+      "creditCardDesc": "Kredit kartı tələb olunmur",
+      "getStartedButton": "Pulsuz Başla"
+    },
+    "chef": {
+      "bookmark": "Resept Defteri",
+      "shoplist": "Alışveriş Siyahısı",
+      "masterchef": "Usta Şef",
+      "collapseSidebar": "Yan menyunu qapalı et",
+      "oneQuestion": "Hangi üsullarınız var? Siyahıdan seçin və ya əlavə etmək istədiyiniz ünsuru sadəcə axtarış qutusuna yazaraq əlavə edin. Qeyd: Standart siyahıda olmayan hər hansı bir ünsuru sadəcə yazaraq əlavə edə bilərsiniz.",
+      "twoQuestion": "Hansı yeməyi hazırlamaq istəyirsiniz?",
+      "thirdQuestion": "Hansı mətbəx vasitələriniz var?",
+      "fourQuestion": "Nə qədər vaxtınız var?",
+      "fiveQuestion": "Siz yaxşı bir aşçısanız?",
+      "addButton": "Tərkiblərinizi Əlavə Edin"
+    },
+    "shoplist": {
+      "emptyListDesc": "Alışveriş Siyahısına heç bir element əlavə etməmisiniz"
+    },
+    "cookbook": {
+      "emptyRecipeDesc": "Sən hələ də heç bir resepti Kitabçağa əlavə etməmisən",
+      "btn": "Reseptler"
+    },
+    "settings": {
+      "mydetails": "Menim Hakkımda",
+      "email": "E-poçt",
+      "password": "Şifre",
+      "profilepage": {
+        "mydetails": "Mənim təfərrüatlarım",
+        "mngProfile": "Profil məlumatlarınızı idarə edin",
+        "name": "Adınız",
+        "email": "Sizin e-poçtunuz",
+        "phone": "Sizin Telefon Nömreniz",
+        "btnupdate": "Profili yeniləyin"
+      },
+      "emailpage": {
+        "descupdateemail": "E-poçt ünvanınızı yeniləyin",
+        "yourmail": "Yeni e-poçtunuz",
+        "repeatemail": "Təkrar e-poçt",
+        "password": "Sizin parolunuz",
+        "btnupdateemail": "E-poçt ünvanını yeniləyin"
+      },
+      "passwordpage": {
+        "password": "Şifre",
+        "descupdatepassword": "Şifrənizi yeniləyin",
+        "currentpassword": "Cari parol",
+        "newpassword": "Yeni parol",
+        "reptnewPas": "Yeni parolu təkrarlayın",
+        "btnupdtpassword": "Şifrəni yeniləyin"
+      }
+    }
+  }
+}

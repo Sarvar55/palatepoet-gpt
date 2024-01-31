@@ -1,0 +1,88 @@
+{
+  "navigations": {
+    "pricing": {
+      "href": "/",
+      "label": "Pricing"
+    },
+    "blog": {
+      "href": "/",
+      "label": "Blog"
+    },
+    "faq": {
+      "href": "/",
+      "label": "FAQ"
+    },
+    "become-a-creator": {
+      "href": "/",
+      "label": "Become a creator"
+    }
+  },
+  "modes": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "menu": {
+    "kitchen": "Kitchen",
+    "setting": "Settings",
+    "theme": "Theme",
+    "signout": "Sign Out"
+  },
+  "page": {
+    "home": {
+      "greating": "Meet ChefGPT",
+      "title_1": "Never Worry About",
+      "title_2": "What's for Dinner Again!",
+      "description": "Say goodbye to boring meals, with AI-powered recipe recommendations, meal plans creation and more... 100,000+ dinners saved so far.",
+      "creditCardDesc": "No credit-card required",
+      "getStartedButton": "Get Started for free"
+    },
+    "chef": {
+      "bookmark": "Cook Book",
+      "shoplist": "Shopping List",
+      "masterchef": "Master Chef",
+      "collapseSidebar": "Collapse Sidebar",
+      "oneQuestion": "What ingredients you have? Select from the list or type any ingredients to add them. Note: You can add any ingredient not present in the standard list by simply typing it in the search box",
+      "twoQuestion": "What meal do you want to cook?",
+      "thirdQuestion": "What kitchen tools do you have?",
+      "fourQuestion": "How much time do you have?",
+      "fiveQuestion": "Are you a good chef?",
+      "addButton": "Add Your Ingredients"
+    },
+    "shoplist": {
+      "emptyListDesc": "You haven't added any items to the Shopping List"
+    },
+    "cookbook": {
+      "emptyRecipeDesc": "You haven't added any Recipes to the Cookbook",
+      "btn": "Recipes"
+    },
+    "settings": {
+      "mydetails": "My Details",
+      "email": "Email",
+      "password": "Password",
+      "profilepage": {
+        "mydetails": "My Details",
+        "mngProfile": "Manage your profile details",
+        "name": "Your name",
+        "email": "Your email",
+        "phone": "Your Phone",
+        "btnupdate": "Update Profile"
+      },
+      "emailpage": {
+        "descupdateemail": "Update your email address",
+        "yourmail": "Your new email",
+        "repeatemail": "Repeat Email",
+        "password": "Your password",
+        "btnupdateemail": "Update Email Address"
+      },
+      "passwordpage": {
+        "password": "Password",
+        "descupdatepassword": "Update your password",
+        "currentpassword": "Current Password",
+        "newpassword": "New Password",
+        "reptnewPas": "Repeat New Password",
+        "btnupdtpassword": "Update Password"
+      }
+    }
+  }
+}
