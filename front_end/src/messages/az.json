@@ -47,7 +47,18 @@
       "thirdQuestion": "Hansı mətbəx vasitələriniz var?",
       "fourQuestion": "Nə qədər vaxtınız var?",
       "fiveQuestion": "Siz yaxşı bir aşçısanız?",
-      "addButton": "Tərkiblərinizi Əlavə Edin"
+      "addButton": "Tərkiblərinizi Əlavə Edin",
+      "recipe": {
+        "preparationTime": "Hazırlama Vaxtı",
+        "difficulty": "Çetinlik seviyesi",
+        "ingredients": "Tərkibatlar",
+        "instructions": "Təlimatlar",
+        "macros": "Makrolar",
+        "totalCalories": "Ümumi Kalori",
+        "carbs": "Karbohidratlar",
+        "proteins": "Protein",
+        "fats": "Yağlar"
+      }
     },
     "shoplist": {
       "emptyListDesc": "Alışveriş Siyahısına heç bir element əlavə etməmisiniz"

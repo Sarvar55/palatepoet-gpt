@@ -47,7 +47,18 @@
       "thirdQuestion": "What kitchen tools do you have?",
       "fourQuestion": "How much time do you have?",
       "fiveQuestion": "Are you a good chef?",
-      "addButton": "Add Your Ingredients"
+      "addButton": "Add Your Ingredients",
+      "recipe": {
+        "preparationTime": "Preparation Time",
+        "difficulty": "Difficulty",
+        "ingredients": "Ingredients",
+        "instructions": "Instructions",
+        "macros": "Macros",
+        "totalCalories": "Total Calories",
+        "carbs": "Carbs",
+        "proteins": "Proteins",
+        "fats": "Fats"
+      }
     },
     "shoplist": {
       "emptyListDesc": "You haven't added any items to the Shopping List"

@@ -1,6 +1,6 @@
 import { RecipeForm } from "@/types/types";
 
-const mapToRecipeForm = (json: any): RecipeForm => {
+const mapToRecipeForm = (json: any, locale: string): RecipeForm => {
   const { cooking_time, difficulty, ingredients, meal_time, tools } =
     json.recipe;
 
@@ -10,6 +10,7 @@ const mapToRecipeForm = (json: any): RecipeForm => {
     ingredients,
     meal_time,
     tools,
+    locale,
   };
 
   return recipeForm;

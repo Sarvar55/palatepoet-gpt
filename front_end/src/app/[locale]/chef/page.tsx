@@ -6,13 +6,20 @@ import RecipeForm from "@/components/recipe-form";
 import { useCompletion } from "ai/react";
 import { generatePrompt } from "@/libs/generate-prompt";
 import { mapToRecipeForm, parseJsonFromMarkdown } from "@/libs/mapper";
-import { RecipeForm as RecipeFormType } from "@/types/types";
+import {
+  Recipe as RecipeType,
+  RecipeForm as RecipeFormType,
+} from "@/types/types";
+import Recipe from "@/components/recipe";
+import { useLocale } from "next-intl";
 
 //Todo: ilk olarak yapman gerek şey bu ki useCompletion hokunu burada kullanıp isLoading parametresini buradan digerine gondermek
 // onsFinish methodu bu o zaman burada olmak zorunda kalıyor daha sonra ise
 export default function Page() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const [showNewForm, setShowNewForm] = useState<boolean>(false);
+  const locale = useLocale();
+  const [recipe, setRecipe] = useState<RecipeType>();
 
   const { complete, isLoading } = useCompletion({
     api: "/api/completion",
@@ -27,6 +34,7 @@ export default function Page() {
         const json = parseJsonFromMarkdown(completion);
         if (json == null) return;
         const result = JSON.parse(json);
+        setRecipe(result);
         setShowNewForm(true);
         console.log(result);
       } catch (error) {
@@ -38,7 +46,7 @@ export default function Page() {
 
   const onFinish = (values: any) => {
     if (values == null || values == undefined) return;
-    const recipe = mapToRecipeForm(values);
+    const recipe = mapToRecipeForm(values, locale);
     onSubmit(recipe);
   };
 
@@ -54,7 +62,7 @@ export default function Page() {
                 isLoading={isLoading}
               />
             ) : (
-              <h1>merhaba</h1> // Yeni formu burada render edin
+              <Recipe recipe={recipe} /> // Yeni formu burada render edin
             )}
           </div>
         </div>

@@ -17,7 +17,7 @@ export function generatePrompt(values: RecipeForm): string {
         - The food you cook should be for (${values.meal_time}).
         - Be creative with the cooking techniques and flavor combinations
         - Feel free to incorporate herbs and spices for an extra burst of flavor
-  
+        - This language (${values.locale}) determines the language in which the values of your json data will be, pay attention to this.
   
       The JSON object must include the following fields:
       - "title": [string]

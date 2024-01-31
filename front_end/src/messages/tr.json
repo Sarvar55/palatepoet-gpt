@@ -47,7 +47,18 @@
       "thirdQuestion": "Hangi mutfak araçlarına sahipsiniz?",
       "fourQuestion": "Ne kadar zamanınız var?",
       "fiveQuestion": "İyi bir aşçı mısınız?",
-      "addButton": "Malzemelerinizi Ekleyin"
+      "addButton": "Malzemelerinizi Ekleyin",
+      "recipe": {
+        "preparationTime": "Hazırlama Süresi",
+        "difficulty": "Zorluk Seviyesi",
+        "ingredients": "Malzemeler",
+        "instructions": "Talimatlar",
+        "macros": "Makrolar",
+        "totalCalories": "Toplam Kalori",
+        "carbs": "Karbonhidratlar",
+        "proteins": "Proteinler",
+        "fats": "Yağlar"
+      }
     },
     "shoplist": {
       "emptyListDesc": "Alışveriş Listesine hiçbir öğe eklemediniz"
