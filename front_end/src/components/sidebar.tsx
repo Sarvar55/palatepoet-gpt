@@ -24,7 +24,7 @@ const Sidebar = () => {
   );
 
   const wrapperClasses = classNames(
-    " px-4 pt-8 pb-4 dark:bg-[#141414] flex justify-between flex-col",
+    " px-4 pt-8 pb-4 dark:bg-[#141414]  fixed top-0 left-0 bottom-0 flex justify-between flex-col relative",
     {
       ["w-80"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,
@@ -55,7 +55,7 @@ const Sidebar = () => {
       onMouseLeave={onMouseOver}
       style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}
     >
-      <div className="flex flex-col fixed">
+      <div className="flex flex-col">
         <div className="flex items-center justify-between relative">
           <Link href={"/"} locale={locale}>
             <div className="flex items-center pl-1 gap-4">
@@ -103,9 +103,9 @@ const Sidebar = () => {
           })}
         </div>
       </div>
-      <div className="fixed bottom-4">
+      <div className="absolute bottom-4 left-0" style={{ width: "100%" }}>
         <button
-          className="flex items-center space-x-3"
+          className="flex items-center space-x-3 w-full justify-center"
           onClick={handleSidebarToggle}
         >
           <LeftCircleOutlined />

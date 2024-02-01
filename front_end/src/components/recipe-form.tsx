@@ -10,6 +10,7 @@ import { generatePrompt } from "@/libs/generate-prompt";
 import { mapToRecipeForm, parseJsonFromMarkdown } from "@/libs/mapper";
 import { useRouter } from "@/navigation";
 import { RecipeForm } from "@/types/types";
+import { authenticateUser, useAuthenticateUser } from "@/utils/auth";
 import { UseCompletionHelpers, useCompletion } from "ai/react";
 import { Button, Checkbox, Form, Select, Slider, Space, Spin } from "antd";
 import classNames from "classnames";
@@ -35,12 +36,16 @@ export default function RecipeForm({
 }: RecipeFormParams) {
   const [minute, setMinute] = useState<number>(0);
   const { data } = useSession();
-  const locale = useLocale();
-  const router = useRouter();
+  const authenticateUser = useAuthenticateUser();
   const t = useTranslations("page.chef");
 
   const handleChangeMinute = (number: number) => {
     setMinute(number);
+  };
+
+  const handleSubmit = () => {
+    setIsClick(true);
+    authenticateUser();
   };
 
   return (
@@ -143,17 +148,17 @@ export default function RecipeForm({
 
       <div className="content w-[98%] space-x-7">
         <Form.Item>
-          <Button
-            onClick={() => setIsClick(true)}
+          <button
+            onClick={() => handleSubmit()}
             className={classNames(
               "bg-blue-400 w-full h-10 rounded-md flex justify-center items-center",
               {
                 ["bg-slate-400"]: !data?.user,
                 ["cursor-not-allowed"]: !data?.user,
+                ["hover:bg-blue-600"]: data?.user,
               },
             )}
-            htmlType="submit"
-            type="primary"
+            type="submit"
           >
             {t("addButton")}
             <Image
@@ -166,7 +171,7 @@ export default function RecipeForm({
               alt="resim"
             />
             {isLoading && <Spin />}
-          </Button>
+          </button>
         </Form.Item>
       </div>
     </Form>

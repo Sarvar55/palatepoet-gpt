@@ -17,15 +17,31 @@ const mapToRecipeForm = (json: any, locale: string): RecipeForm => {
 };
 
 const parseJsonFromMarkdown = (markdownString: string): string | null => {
-  var pattern = /```json([\s\S]*?)```/;
-  var match = markdownString.match(pattern);
+  const pattern = /```json([\s\S]*?)```/;
+  const match = markdownString.match(pattern);
 
   if (match) {
-    var parsedJson = match[1].trim();
+    const parsedJson = match[1].trim();
     return parsedJson;
   } else {
     return null;
   }
 };
 
-export { parseJsonFromMarkdown, mapToRecipeForm };
+async function handleResponse<T>(response: Response): Promise<T> {
+  const contentType = response.headers.get("Content-Type") || "";
+  const isJson = contentType.includes("application/json");
+  const data = isJson ? await response.json() : await response.text();
+
+  if (!response.ok) {
+    if (isJson && data.errors !== null) {
+      throw new Error(JSON.stringify(data.errors));
+    }
+
+    throw new Error(data.message || response.statusText);
+  }
+
+  return data as T;
+}
+
+export { parseJsonFromMarkdown, mapToRecipeForm, handleResponse };

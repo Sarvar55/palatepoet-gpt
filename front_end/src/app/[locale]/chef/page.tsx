@@ -19,7 +19,7 @@ export default function Page() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const [showNewForm, setShowNewForm] = useState<boolean>(false);
   const locale = useLocale();
-  const [recipe, setRecipe] = useState<RecipeType>();
+  const [recipe, setRecipe] = useState<RecipeType | null>(null);
 
   const { complete, isLoading } = useCompletion({
     api: "/api/completion",

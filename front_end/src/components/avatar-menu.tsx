@@ -11,6 +11,7 @@ import DarkMode from "./ui/darkmode-switch";
 import DarkModeMenu from "./ui/darkmode-menu";
 import { signOut, useSession } from "next-auth/react";
 import { User } from "next-auth";
+import LocalizedLink from "./localized-link";
 
 type Params = {
   user: User;
@@ -78,9 +79,8 @@ function AuthMenu({ user }: Params) {
         </div>
         <div className="space-y-3">
           <div className="option flex  border-b  border-blue-100 hover:bg-[#d7ece2] w-[97%] hover: dark:hover:bg-[#383838] cursor-pointer py-1 rounded-md transition-colors space-x-3 font-roboto">
-            <Link
+            <LocalizedLink
               href={"/chef"}
-              locale={locale}
               className="flex h-full w-full items-center space-x-2"
             >
               <Image
@@ -93,10 +93,10 @@ function AuthMenu({ user }: Params) {
               <span className="font-medium text-sm leading-5 dark:text-[#F1f2f3] text-black-primary">
                 Kitchen
               </span>
-            </Link>
+            </LocalizedLink>
           </div>
           <div className="option flex border-b  border-blue-100 hover:bg-[#d7ece2] w-[97%] hover: dark:hover:bg-[#383838] cursor-pointer py-1 rounded-md transition-colors space-x-3 font-roboto">
-            <Link
+            <LocalizedLink
               href={"/settings"}
               locale={locale}
               className="flex h-full w-full items-center space-x-2"
@@ -111,13 +111,13 @@ function AuthMenu({ user }: Params) {
               <span className="font-medium text-sm leading-5 dark:text-[#F1f2f3] text-black-primary">
                 Settings
               </span>
-            </Link>
+            </LocalizedLink>
           </div>
           <div
             onMouseEnter={() => setIsMouseOver(true)}
             className="option  border-b  border-blue-100 hover:bg-[#d7ece2] relative hidden md:flex w-[97%] dark:hover:bg-[#383838] cursor-pointer py-1 rounded-md transition-colors space-x-3 font-roboto"
           >
-            <Link
+            <LocalizedLink
               href={"/"}
               className="flex h-full w-full items-center space-x-2"
             >
@@ -127,16 +127,15 @@ function AuthMenu({ user }: Params) {
               <span className="font-medium text-sm leading-5 dark:text-[#F1f2f3] text-black-primary">
                 Theme
               </span>
-            </Link>
+            </LocalizedLink>
           </div>
           <div
             onMouseLeave={() => setIsMouseOver(false)}
             className="option  border-b  border-blue-100 hover:bg-[#d7ece2] relative hidden md:flex  w-[97%] dark:hover:bg-[#383838] cursor-pointer py-1 rounded-md transition-colors space-x-3 font-roboto"
           >
-            <Link
+            <LocalizedLink
               href={"/"}
               onClick={() => signOut()}
-              locale={locale}
               className="flex h-full w-full items-center space-x-2"
             >
               <Image
@@ -149,7 +148,7 @@ function AuthMenu({ user }: Params) {
               <span className="font-medium text-sm leading-5 dark:text-[#F1f2f3] text-black-primary">
                 Sign Out
               </span>
-            </Link>
+            </LocalizedLink>
           </div>
           <div
             onMouseLeave={() => setIsMouseOver(false)}
@@ -167,18 +166,18 @@ function UnAuthMenu() {
   return (
     <div className="w-full h-full">
       <div className="flex justify-between items-center space-x-3">
-        <Link
+        <LocalizedLink
           href={"/auth/login"}
           className="dark:bg-green-300 font-roboto bg-slate-100 text-gray hover:bg-slate-100 duration-150 transition-colors p-2 rounded-lg"
         >
           Sign In
-        </Link>
-        <Link
-          href={"/"}
+        </LocalizedLink>
+        <LocalizedLink
+          href={"/auth/register"}
           className="bg-green-500 font-roboto  hover:bg-green-600 duration-150 transition-colors p-2 rounded-lg"
         >
           Sign Up
-        </Link>
+        </LocalizedLink>
       </div>
     </div>
   );

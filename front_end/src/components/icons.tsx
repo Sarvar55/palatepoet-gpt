@@ -6,6 +6,9 @@ import {
   ChevronDown,
   Pencil,
   Menu,
+  User,
+  Lock,
+  Mail,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,4 +22,7 @@ export const Icons = {
   downArrow: ChevronDown,
   pencil: Pencil,
   menu: Menu,
+  lock: Lock,
+  user: User,
+  mail: Mail,
 };
