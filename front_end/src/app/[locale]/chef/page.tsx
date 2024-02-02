@@ -62,7 +62,7 @@ export default function Page() {
                 isLoading={isLoading}
               />
             ) : (
-              <Recipe recipe={recipe} /> // Yeni formu burada render edin
+              <Recipe recipe={recipe} />
             )}
           </div>
         </div>

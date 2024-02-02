@@ -76,7 +76,7 @@
         "mngProfile": "Manage your profile details",
         "name": "Your name",
         "email": "Your email",
-        "phone": "Your Phone",
+        "password": "Your password",
         "btnupdate": "Update Profile"
       },
       "emailpage": {

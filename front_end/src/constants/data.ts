@@ -9,6 +9,7 @@ import {
   HeroImage,
 } from "../../public";
 import { Meal } from "@/types/types";
+
 export const ImageIcons = {
   cook,
   bookmark,

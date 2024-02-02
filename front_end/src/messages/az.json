@@ -76,7 +76,7 @@
         "mngProfile": "Profil məlumatlarınızı idarə edin",
         "name": "Adınız",
         "email": "Sizin e-poçtunuz",
-        "phone": "Sizin Telefon Nömreniz",
+        "password": "Şifreniz",
         "btnupdate": "Profili yeniləyin"
       },
       "emailpage": {

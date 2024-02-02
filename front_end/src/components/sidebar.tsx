@@ -9,6 +9,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { sideBarLinks } from "@/constants/links";
 import { ImageIcons } from "@/constants/data";
 import { SidebarLink } from "@/types/types";
+import LocalizedLink from "./localized-link";
 
 const Sidebar = () => {
   const [toggleCollapse, setToggleCollapse] = useState(false);
@@ -24,7 +25,7 @@ const Sidebar = () => {
   );
 
   const wrapperClasses = classNames(
-    " px-4 pt-8 pb-4 dark:bg-[#141414]  fixed top-0 left-0 bottom-0 flex justify-between flex-col relative",
+    " px-4 pt-8 pb-4 dark:bg-[#141414] h-screen fixed top-0 left-0 right-0 flex justify-between flex-col relative",
     {
       ["w-80"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,
@@ -57,7 +58,7 @@ const Sidebar = () => {
     >
       <div className="flex flex-col">
         <div className="flex items-center justify-between relative">
-          <Link href={"/"} locale={locale}>
+          <LocalizedLink href={"/"}>
             <div className="flex items-center pl-1 gap-4">
               <Image src={ImageIcons.logo} alt="resim" width={40} height={40} />
 
@@ -72,7 +73,7 @@ const Sidebar = () => {
                 Chef<span className="text-green">GPT</span>
               </p>
             </div>
-          </Link>
+          </LocalizedLink>
         </div>
 
         <div className="flex flex-col items-start mt-24">
@@ -80,8 +81,7 @@ const Sidebar = () => {
             const classes = getNavItemClasses(menu);
             return (
               <div key={menu.id} className={classes}>
-                <Link
-                  locale={locale}
+                <LocalizedLink
                   href={`/${menu.href}`}
                   className="flex py-3 px-3 dark:hover:bg-[#102a19] hover:bg-[#ecfdf5] items-center w-full h-full"
                 >
@@ -97,13 +97,13 @@ const Sidebar = () => {
                       {t(menu.id)}
                     </span>
                   )}
-                </Link>
+                </LocalizedLink>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="absolute bottom-4 left-0" style={{ width: "100%" }}>
+      <div className="absolute bottom-10 left-0" style={{ width: "100%" }}>
         <button
           className="flex items-center space-x-3 w-full justify-center"
           onClick={handleSidebarToggle}

@@ -1,8 +1,7 @@
 import { useLocale } from "next-intl";
 import React, { ReactNode } from "react";
 import { Link } from "@/navigation";
-
-type LocaleType = "tr" | "en" | "az";
+import { LocaleType } from "@/i18n";
 
 type Props = {
   href: string;

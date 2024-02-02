@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import LocalizedLink from "./localized-link";
 import { ImageIcons } from "@/constants/data";
 
 export default function Hero() {
@@ -26,11 +26,11 @@ export default function Hero() {
           </p>
         </div>
         <div className="flex flex-col w-[30%]">
-          <Link href={"/auth/sign-in"}>
+          <LocalizedLink href={"/auth/login"}>
             <button className="md:w-[250px] w-[150px] bg-green-secondary mt-6 p-5 rounded-md font-sans text-xl font-medium ">
               {t("getStartedButton")}
             </button>
-          </Link>
+          </LocalizedLink>
           <span className="text-xs text-gray self-center mt-2 font-roboto">
             {t("creditCardDesc")}
           </span>

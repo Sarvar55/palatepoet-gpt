@@ -34,10 +34,10 @@ export default function RecipeForm({
   onFinish,
   setIsClick,
 }: RecipeFormParams) {
-  const [minute, setMinute] = useState<number>(0);
-  const { data } = useSession();
   const authenticateUser = useAuthenticateUser();
+  const [minute, setMinute] = useState<number>(0);
   const t = useTranslations("page.chef");
+  const { data } = useSession();
 
   const handleChangeMinute = (number: number) => {
     setMinute(number);
