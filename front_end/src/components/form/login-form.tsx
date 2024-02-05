@@ -3,8 +3,9 @@ import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Icons } from "../icons";
 import LocalizedLink from "@/components/localized-link";
-import { LoginPayload } from "@/types/types";
+import { LoginPayload } from "@/types/payloads";
 import { signInHandler } from "@/utils/auth";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
   const onFinish = (values: any) => {

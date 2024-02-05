@@ -3,14 +3,18 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import { Icons } from "../icons";
 import LocalizedLink from "@/components/localized-link";
-import { RegisterPayload } from "@/types/types";
+import { RegisterPayload } from "@/types/payloads";
 import { register } from "@/services/user-service";
+import { useCustomRouter } from "@/utils/auth";
 
 export default function RegisterForm() {
-  const onFinish = (values: any) => {
+  const pushTo = useCustomRouter();
+
+  const onFinish = async (values: any) => {
     const { email, username, password } = values;
     const body: RegisterPayload = { email, password, username };
-    register(body);
+    await register(body);
+    pushTo("/auth/login");
   };
 
   return (

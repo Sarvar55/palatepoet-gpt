@@ -31,12 +31,12 @@ export const sideBarLinks: SidebarLink[] = [
     text: "Master Chef",
     href: "/chef",
   },
-  {
-    id: "shoplist",
-    icon: ImageIcons.shoppingBasket.src,
-    text: "Shopping List",
-    href: "/shoplist",
-  },
+  // {
+  //   id: "shoplist",
+  //   icon: ImageIcons.shoppingBasket.src,
+  //   text: "Shopping List",
+  //   href: "/shoplist",
+  // },
   {
     id: "bookmark",
     icon: ImageIcons.bookmark.src,

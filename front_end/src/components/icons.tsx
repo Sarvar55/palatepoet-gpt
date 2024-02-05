@@ -9,6 +9,7 @@ import {
   User,
   Lock,
   Mail,
+  Heart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -25,4 +26,5 @@ export const Icons = {
   lock: Lock,
   user: User,
   mail: Mail,
+  heart: Heart,
 };

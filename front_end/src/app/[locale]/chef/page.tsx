@@ -62,7 +62,7 @@ export default function Page() {
                 isLoading={isLoading}
               />
             ) : (
-              <Recipe recipe={recipe} />
+              <Recipe isShow={true} recipe={recipe} />
             )}
           </div>
         </div>

@@ -7,7 +7,7 @@ export default async function authenticate(payload: LoginPayload) {
   try {
     const response = await baseService(
       HTTP_METHODS.POST,
-      SERVER_ENDPOINT_V1 + "/auth/login",
+      SERVER_ENDPOINT_V1 + "/auth/sign-in",
       payload,
     );
     return response;
@@ -20,9 +20,24 @@ export async function register(payload: RegisterPayload) {
   try {
     const response = await baseService(
       HTTP_METHODS.POST,
-      SERVER_ENDPOINT_V1 + "/auth/register",
+      SERVER_ENDPOINT_V1 + "/auth/sign-up",
       payload,
     );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getUserById(userId: string, token: string) {
+  try {
+    const response = fetch(SERVER_ENDPOINT_V1 + "/users/" + userId, {
+      method: HTTP_METHODS.GET,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
     return response;
   } catch (error) {
     console.log(error);
@@ -74,7 +89,7 @@ export async function changeUserPassword(userId: string, payload: any) {
 export const baseService = async <T>(
   method: string = HTTP_METHODS.GET,
   path: string,
-  body: any,
+  body?: any,
 ): Promise<T> => {
   const response = await fetch(path, {
     method,

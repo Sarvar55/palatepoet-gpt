@@ -25,7 +25,7 @@ const Sidebar = () => {
   );
 
   const wrapperClasses = classNames(
-    " px-4 pt-8 pb-4 dark:bg-[#141414] h-screen fixed top-0 left-0 right-0 flex justify-between flex-col relative",
+    " px-4 pt-8 pb-4 dark:bg-[#141414] h-full  flex justify-between flex-col relative",
     {
       ["w-80"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,
@@ -61,16 +61,15 @@ const Sidebar = () => {
           <LocalizedLink href={"/"}>
             <div className="flex items-center pl-1 gap-4">
               <Image src={ImageIcons.logo} alt="resim" width={40} height={40} />
-
               <p
                 className={classNames(
-                  "text-gray flex justify-center items-center font-roboto font-bold text-2xl",
+                  "bg-clip-text bg-gradient-to-bl from-green-600 via-cyan-700 to-purple-400 text-transparent text-gray flex justify-center  items-center font-roboto font-bold text-2xl",
                   {
                     hidden: toggleCollapse,
                   },
                 )}
               >
-                Chef<span className="text-green">GPT</span>
+                Palate <span className="text-green">Poet</span>
               </p>
             </div>
           </LocalizedLink>
@@ -103,7 +102,7 @@ const Sidebar = () => {
           })}
         </div>
       </div>
-      <div className="absolute bottom-10 left-0" style={{ width: "100%" }}>
+      <div className="h-full fixed top-[877px]">
         <button
           className="flex items-center space-x-3 w-full justify-center"
           onClick={handleSidebarToggle}

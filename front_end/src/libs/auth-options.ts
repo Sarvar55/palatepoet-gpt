@@ -25,22 +25,13 @@ export const authOptions: NextAuthOptions = {
 
         // create LoginPayload object for the send user-service method
         const { email, password } = credentials;
-        if (email == "deneme@gmail.com" && password == "1234567") {
-          return {
-            name: "Deneme",
-            email: email,
-            userId: 1,
-            accessToken: "jkngjkdf",
-            refreshToken: "kjnfgkjndfkjg",
-          };
-        }
         const payload: LoginPayload = { email, password };
 
-        const result = await authenticate(payload);
+        const result = await authenticate(payload).then((res) => res.data);
 
-        const user: User = await result?.json();
+        const user: User = result;
 
-        if (result?.ok && user) return user;
+        if (user) return user;
         else return null;
       },
     }),
@@ -53,7 +44,7 @@ export const authOptions: NextAuthOptions = {
           accessToken: user.accessToken,
           refreshToken: user.refreshToken,
           userId: user.userId,
-          username: user.username,
+          name: user.username,
           email: user.email,
         };
       }
@@ -69,6 +60,7 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: "/auth/login",
+    error: "/auth/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
 };

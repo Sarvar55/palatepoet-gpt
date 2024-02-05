@@ -1,6 +1,7 @@
 import {
   JetBrains_Mono as FontMono,
   Inter as FontSans,
+  Aclonica as Ack,
 } from "next/font/google";
 
 export const fontSans = FontSans({

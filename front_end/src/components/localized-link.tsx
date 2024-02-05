@@ -17,7 +17,13 @@ export default function LocalizedLink({
 }: Props) {
   const locale = useLocale() as LocaleType;
   return (
-    <Link locale={locale} href={href} className={className} {...props}>
+    <Link
+      locale={locale}
+      href={href}
+      replace={true}
+      className={className}
+      {...props}
+    >
       {children}
     </Link>
   );

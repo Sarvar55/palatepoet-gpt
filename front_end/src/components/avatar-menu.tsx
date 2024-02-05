@@ -1,7 +1,6 @@
 "use client";
 
 import Avatar from "./ui/avatar";
-import { Link } from "@/navigation";
 import React, { useState, useEffect, useRef, use } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
@@ -12,6 +11,8 @@ import DarkModeMenu from "./ui/darkmode-menu";
 import { signOut, useSession } from "next-auth/react";
 import { User } from "next-auth";
 import LocalizedLink from "./localized-link";
+import { getUserById } from "@/services/user-service";
+import { date } from "zod";
 
 type Params = {
   user: User;
@@ -20,6 +21,7 @@ type Params = {
 export default function AvatarMenu() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>();
+  const [user, setUser] = useState<User | null>();
   const { data: session } = useSession();
 
   const ref = useRef(null);
@@ -46,7 +48,7 @@ export default function AvatarMenu() {
     <>
       {session?.user ? (
         <div className="flex flex-col relative">
-          <Avatar username={session.user.name} onClick={onClick} />
+          <Avatar username={session?.user.name} onClick={onClick} />
           <div ref={ref} className="absolute top-16 right-10">
             {isClick && isOpen && <AuthMenu user={session.user} />}
           </div>

@@ -26,7 +26,7 @@ export function generatePrompt(values: RecipeForm): string {
       - "ingredients": [{"name": [string], "amount": [string]}, ...] (based on the provided diet type and ingredients provided),
       - "instructions": [{"step": [number], "description": [string]}, ...]
       - "difficulty": [string] (based on the provided input)
-      - "cooking_time": [number] (based on the provided input)
+      - "cookingTime": [number] (based on the provided input)
       
       Format the response as a valid JSON object with all fields filled. Here is the structure for reference:
       
@@ -37,7 +37,7 @@ export function generatePrompt(values: RecipeForm): string {
         "ingredients": { /* details */ },
         "instructions": { /* details */ },
         "difficulty":  /* details */ ,
-        "cooking_time":  /* details */ 
+        "cookingTime":  /* details */ 
       }
       
       Respond only with the completed JSON object, without any additional explanatory or descriptive text. The JSON should be complete and ready for parsing. JSON.parse()

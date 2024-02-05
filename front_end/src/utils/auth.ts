@@ -18,42 +18,20 @@ export function useAuthenticateUser() {
 
   return authenticateUser;
 }
+export function useCustomRouter() {
+  const { push } = useRouter();
+  const locale = useLocale();
 
-// Örnek usePrivateRoute fonksiyonu
-export function usePrivateRoute() {
-  const { data: sessionData } = useSession();
-  const { push: navigate } = useRouter();
-  const pathname = usePathname();
-  const localeValue = useLocale();
-
-  const authPages = (pathnameV: string) => {
-    const pathnameIsMissingLocale = locales.every(
-      (locale) =>
-        !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
-    );
-
-    console.log(pathname);
-    console.log(pathnameIsMissingLocale);
-
-    if (
-      pathnameIsMissingLocale &&
-      !sessionData?.user &&
-      !publicPages
-        .flatMap((p) => (p === "/" ? ["", "/"] : p))
-        .includes(pathname)
-    ) {
-      console.log("burdayım");
-
-      return navigate("/auth/login", { locale: localeValue });
-    }
+  const pushTo = (path: string) => {
+    push(path, { locale });
   };
-  return authPages;
+  return pushTo;
 }
 
 export function signInHandler(
   body: LoginPayload,
   redirect: boolean = true,
-  callBackUrl: string = "/",
+  callbackUrl: string = "/",
   provider: string = "credentials",
 ) {
   const { email, password } = body;
@@ -61,8 +39,8 @@ export function signInHandler(
     signIn(provider, {
       email,
       password,
-      callbackUrl: callBackUrl,
-      redirect: redirect,
+      callbackUrl,
+      redirect,
     });
   } catch (error) {
     console.log(error);

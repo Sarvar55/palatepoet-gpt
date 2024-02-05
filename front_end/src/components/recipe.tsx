@@ -2,12 +2,14 @@ import { ingredients } from "@/constants/data";
 import { Recipe } from "@/types/types";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { Icons } from "./icons";
 
 type Props = {
   recipe: Recipe | null;
+  isShow?: boolean;
 };
 
-export default function Recipe({ recipe }: Props) {
+export default function Recipe({ recipe, isShow }: Props) {
   const t = useTranslations("page.chef.recipe");
 
   return (
@@ -20,7 +22,7 @@ export default function Recipe({ recipe }: Props) {
           <h3 className="mt-4 text-lg font-bold sm:text-lg text-black-primary dark:text-white">
             {t("preparationTime")}:
             <span className="px-1 font-normal text-base text-black-primary dark:text-white">
-              {recipe?.cooking_time}
+              {recipe?.cookingTime}
             </span>
           </h3>
           <h3 className="mt-4 text-lg font-bold sm:text-lg text-black-primary dark:text-white">
@@ -71,6 +73,15 @@ export default function Recipe({ recipe }: Props) {
             </p>
           </div>
         </div>
+        {isShow && (
+          <button className="mt-4 py-1 px-1 w-full flex justify-center items-center group dark:bg-slate-600 dark:hover:bg-neutral-600 hover:bg-neutral-800 bg-black-primary rounded-md">
+            Save
+            <Icons.heart
+              size={19}
+              className="ml-2 group-hover:text-red-600 duration-150 transition-colors"
+            />
+          </button>
+        )}
       </div>
     </main>
   );
