@@ -13,7 +13,7 @@ export default function Hero() {
           {t("greating")}👋
         </h1>
         <div className="content mt-6">
-          <div className="text-8xl font-roboto capitalize flex flex-col leading-[80px] font-extrabold space-y-8">
+          <div className="text-9xl font-roboto capitalize flex flex-col leading-[80px] font-extrabold space-y-8">
             {t("title_1")}
             <span className="text-green-secondary capitalize">
               {t("title_2")}
