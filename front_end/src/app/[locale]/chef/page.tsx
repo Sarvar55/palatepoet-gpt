@@ -28,6 +28,8 @@ export default function Page() {
   const onSubmit = useCallback(
     async (recipe: RecipeFormType) => {
       const prompt = generatePrompt(recipe);
+      console.log(prompt);
+
       const completion = await complete(prompt);
       if (!completion) throw new Error("Failed to completion");
       try {
@@ -36,7 +38,6 @@ export default function Page() {
         const result = JSON.parse(json);
         setRecipe(result);
         setShowNewForm(true);
-        console.log(result);
       } catch (error) {
         console.error("Error parsing JSON:", error);
       }

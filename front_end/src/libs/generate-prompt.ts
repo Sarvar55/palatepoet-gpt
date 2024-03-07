@@ -44,3 +44,4 @@ export function generatePrompt(values: RecipeForm): string {
       It should not cause any errors when used and should be parsed directly.
     `;
 }
+

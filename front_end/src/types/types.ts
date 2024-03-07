@@ -17,6 +17,7 @@ export interface RecipeForm {
   cooking_time: number;
   difficulty: string;
   tools: string[];
+  locale: string;
   meal_time: string;
 }
 

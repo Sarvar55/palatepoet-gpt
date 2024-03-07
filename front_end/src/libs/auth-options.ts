@@ -25,6 +25,7 @@ export const authOptions: NextAuthOptions = {
 
         // create LoginPayload object for the send user-service method
         const { email, password } = credentials;
+
         const payload: LoginPayload = { email, password };
 
         const result = await authenticate(payload).then((res) => res.data);
