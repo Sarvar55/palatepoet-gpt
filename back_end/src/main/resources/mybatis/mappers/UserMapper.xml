@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.palatepoet.gpt.repository.UserRepository">
+
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO users(username, status, email, password)
+        VALUES ( #{username}, #{status}, #{email}, #{password})
+    </insert>
+
+    <select id="findByEmail" resultType="User">
+        select
+        <include refid="userBaseColumns"/>
+        from users u
+        where u.email = #{email}
+        and u.is_deleted = false
+    </select>
+
+
+    <select id="findById" resultType="User">
+            select
+            u.id,u.username,u.email,u.status
+            from users u
+            where u.id = #{userId}
+            and u.is_deleted = false
+    </select>
+
+
+
+    <sql id="userBaseColumns">
+        u.id,
+        u.username,
+        u.email,
+        u.status,
+        u.password,
+        u.is_deleted
+    </sql>
+
+
+</mapper>

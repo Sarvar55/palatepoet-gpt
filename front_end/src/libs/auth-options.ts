@@ -28,11 +28,20 @@ export const authOptions: NextAuthOptions = {
 
         const payload: LoginPayload = { email, password };
 
-        const result = await authenticate(payload).then((res) => res.data);
+        //const result = await authenticate(payload).then((res) => res.data);
 
-        const user: User = result;
+        //const user: User = result;
 
-        if (user) return user;
+        if (email == "deneme@gmail.com" && password == "deneme") {
+          return {
+            userId: 1,
+            email: "deeme@gmail.omc",
+            username: "kjsdfnjkn",
+            accessToken: "kjsfsjkdfnkjsf",
+            refreshToken: "kjfnskjn",
+          };
+        }
+        // if (user) return user;
         else return null;
       },
     }),

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.palatepoet.gpt.repository.RecipeRepository">
+
+    <insert id="insert" parameterType="Recipe" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO recipe(title, user_id, cooking_time, difficulty, calories)
+        VALUES (#{title}, #{userId}, #{cookingTime}, #{difficulty}, #{calories})
+    </insert>
+
+     <update id="deleteRecipeById" parameterType="java.lang.Long">
+            UPDATE recipe
+            SET is_deleted = true
+            WHERE id = #{recipeId}
+     </update>
+
+
+ <resultMap id="RecipeWithDetailsResultMap" type="com.palatepoet.gpt.models.response.RecipeResponse">
+     <id property="id" column="id" />
+     <result property="title" column="title" />
+     <result property="cookingTime" column="cooking_time" />
+     <result property="calories" column="calories" />
+     <result property="difficulty" column="difficulty" />
+
+     <!-- Macros bilgileri -->
+     <association property="macros" javaType="Macro">
+         <result property="protein" column="protein" />
+         <result property="fats" column="fats" />
+         <result property="carbs" column="carbs" />
+     </association>
+
+     <!-- Ingredient bilgileri -->
+     <collection property="ingredients"  ofType="ingredient">
+         <result property="name" column="ingredient_name" />
+         <result property="amount" column="amount" />
+     </collection>
+
+     <!-- Instruction bilgileri -->
+     <collection property="instructions"  ofType="instruction">
+         <result property="step" column="step" />
+         <result property="description" column="description" />
+     </collection>
+ </resultMap>
+
+ <select id="getRecipesByUserId" resultMap="RecipeWithDetailsResultMap">
+     SELECT
+     
+         r.id AS r_id, r.title, r.cooking_time, r.calories, r.difficulty,
+         m.id AS m_id, m.protein, m.fats, m.carbs,
+         i.id AS i_id, i.name AS ingredient_name, i.amount,
+         ins.id AS ins_id, ins.step, ins.description
+     FROM
+         recipe r
+         left JOIN macros m ON r.id = m.recipe_id
+         left JOIN ingredient i ON r.id = i.recipe_id
+         left JOIN instruction ins ON r.id = ins.recipe_id
+     WHERE
+         r.user_id = #{userId}
+ </select>
+
+    <sql id="recipeBaseColumns">
+        r.id,
+        r.title,
+        r.user_id,
+        r.cooking_time,
+        r.difficulty,
+        r.calories
+        r.is_deleted
+    </sql>
+
+</mapper>

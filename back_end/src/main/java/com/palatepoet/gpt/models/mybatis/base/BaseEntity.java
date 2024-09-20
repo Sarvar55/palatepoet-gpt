@@ -1,13 +1,12 @@
-package com.palatepoet.gpt.models.mybatis.user.base;
+package com.palatepoet.gpt.models.mybatis.base;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class BaseEntity<ID> extends IsDeletedEntity {
+public abstract class BaseEntity<ID> {
     ID id;
 }

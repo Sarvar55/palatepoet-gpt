@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.7.xsd">
+
+    <!-- Recipe tablosu oluşturma -->
+    <changeSet id="createRecipeTable" author="sarvar55">
+        <createTable tableName="recipe">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+             <column name="user_id" type="BIGINT">
+               <constraints nullable="false"/>
+             </column>
+            <column name="cooking_time" type="INTEGER"/>
+            <column name="calories" type="INTEGER"/>
+            <column name="difficulty" type="VARCHAR(50)"/>
+             <column name="is_deleted" type="BOOLEAN" defaultValueBoolean="false">
+               <constraints nullable="false"/>
+             </column>
+        </createTable>
+    </changeSet>
+
+   <changeSet id="recipe-table-add-foreign-key" author="sarvar55">
+        <addForeignKeyConstraint
+            baseColumnNames="user_id"
+            baseTableName="recipe"
+            constraintName="fk_recipe_user"
+            onDelete="NO ACTION"
+            onUpdate="RESTRICT"
+            referencedColumnNames="id"
+            referencedTableName="users"
+            />
+    </changeSet>
+
+    <!-- Ingredients tablosu oluşturma -->
+    <changeSet id="createIngredientTable" author="sarvar55">
+        <createTable tableName="ingredient">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="recipe_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Add Foreign Key Constraint: ingredient.recipe_id -> recipe.id -->
+    <changeSet id="addForeignKeyConstraint_Ingredient_Recipe" author="sarvar55">
+        <addForeignKeyConstraint
+            baseTableName="ingredient"
+            baseColumnNames="recipe_id"
+            referencedTableName="recipe"
+            referencedColumnNames="id"
+            constraintName="fk_ingredient_recipe"/>
+    </changeSet>
+
+    <!-- Instructions tablosu oluşturma -->
+    <changeSet id="createInstructionTable" author="author_name">
+        <createTable tableName="instruction">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="recipe_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="step" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <!-- Add Foreign Key Constraint: instruction.recipe_id -> recipe.id -->
+    <changeSet id="addForeignKeyConstraint_Instruction_Recipe" author="sarvar55">
+        <addForeignKeyConstraint
+            baseTableName="instruction"
+            baseColumnNames="recipe_id"
+            referencedTableName="recipe"
+            referencedColumnNames="id"
+            constraintName="fk_instruction_recipe"/>
+    </changeSet>
+
+    <changeSet id="createMacrosTable" author="sarvar55">
+            <createTable tableName="macros">
+                <column name="id" type="BIGINT" autoIncrement="true">
+                    <constraints primaryKey="true" nullable="false"/>
+                </column>
+                <column name="recipe_id" type="BIGINT">
+                  <constraints nullable="false"/>
+                </column>
+                <column name="protein" type="DOUBLE"/>
+                <column name="fats" type="DOUBLE"/>
+                <column name="carbs" type="DOUBLE"/>
+            </createTable>
+        </changeSet>
+
+        <changeSet id="addForeignKeyToRecipe" author="sarvar55">
+                <addForeignKeyConstraint baseColumnNames="recipe_id"
+                                         baseTableName="macros"
+                                         constraintName="fk_recipe_macros"
+                                         referencedColumnNames="id"
+                                         referencedTableName="recipe"/>
+        </changeSet>
+
+
+</databaseChangeLog>

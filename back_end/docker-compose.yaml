@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    container_name: palate_poet
+    image: postgres:14.5
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=2002
+      - POSTGRES_DB=palate_poet
+    ports:
+      - '5432:5432'
+    volumes:
+      - palate_poet:/var/lib/postgresql/data
+volumes:
+  palate_poet:
+      driver: local

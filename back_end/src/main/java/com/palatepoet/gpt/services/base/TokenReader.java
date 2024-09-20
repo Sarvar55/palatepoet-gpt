@@ -1,2 +1,5 @@
-package com.palatepoet.gpt.services.base;public class TokenReader {
+package com.palatepoet.gpt.services.base;
+
+public interface TokenReader<T> {
+    T read(String token);
 }

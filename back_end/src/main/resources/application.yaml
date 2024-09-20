@@ -1,0 +1,13 @@
+
+spring:
+  profiles:
+    active: local
+  liquibase:
+    change-log: classpath:migrations/changelog-master.xml
+    enabled: true
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
+  type-aliases-package: com.palatepoet.gpt.models.mybatis
+#x burada liquibase eneble:true olmas?na dikkat etmek laz?m sebeb buras? common file gibi bir yer
+# her zaman buras? da okunur burada true ile prod,dev,test hepsinde true olmu? olucak bunu her birinde ayarlamak ?ok daha d?zg?n bir yakla??m olucakt?r.

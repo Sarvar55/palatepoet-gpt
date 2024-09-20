@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.palatepoet.gpt.repository.MacroRepository">
+
+    <insert id="insert" parameterType="Macro" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO macros(recipe_id,protein,fats,carbs)
+        VALUES (#{recipeId}, #{protein}, #{fats}, #{carbs})
+    </insert>
+
+  <delete id="deleteAuthor">
+    delete from Author where id = #{id}
+  </delete>
+
+    <sql id="macroBaseColumns">
+        m.id,
+        m.recipe_id,
+        m.carbs,
+        m.protein,
+        m.fats,
+    </sql>
+
+</mapper>
