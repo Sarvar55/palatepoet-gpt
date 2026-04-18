@@ -4,11 +4,11 @@ PalatePoet GPT, kullanıcıların yemek pişirme deneyimini dijitalleştirerek k
 
 ## Biz Hangi Sorunu Çözüyoruz?
 
-Modern dünyada insanlar sağlıklı ve lezzetli yemek tariflerine ulaşmakta zorluk çekmiyorlar, ancak **kişiselleştirilmiş** ve **yönetilebilir** bir deneyim bulmak hala büyük bir sorun. PalatePoet GPT:
-- Karmaşık içerik listelerini ve talimatlarını düzenli bir yapıda sunar.
-- Kullanıcıların kendi damak tadına ve diyet hedeflerine uygun tarifleri saklamasını sağlar.
-- Besin değerlerini (makroları) takip ederek sağlıklı yaşam sürecini destekler.
-- Dağınık tarif notlarını, her yerden erişilebilir dijital bir kütüphaneye dönüştürür.
+Modern dünyada insanlar sağlıklı ve lezzetli yemek tariflerine ulaşmakta zorluk çekmiyorlar, ancak **kişiselleştirilmiş** ve **eldeki imkanlara uygun** bir deneyim bulmak hala büyük bir sorun. PalatePoet GPT, kullanıcının mutfağındaki mevcut malzemeleri, ayırabileceği süreyi ve tercih ettiği öğünü temel alarak akıllı çözümler sunar:
+- **Eldeki Malzemelerle Tarif:** "Mutfakta ne var?" sorusuna yanıt vererek, israfı önler ve eldeki malzemelere uygun tarifler üretir.
+- **Zaman Yönetimi:** Kullanıcının o anki zaman kısıtına göre (hızlı bir atıştırmalık veya detaylı bir akşam yemeği) en uygun yemek seçeneklerini sunar.
+- **Öğün Bazlı Planlama:** Sabah, öğle veya akşam; o an hangi öğün yapılacaksa ona özel AI destekli öneriler geliştirir.
+- **Kişiselleştirilmiş Arşiv:** Beğenilen tarifleri ve besin değerlerini (makroları) düzenli bir yapıda saklamayı sağlar.
 
 ## Tech Stack
 
