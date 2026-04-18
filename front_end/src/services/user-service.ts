@@ -1,6 +1,6 @@
 import { HTTP_METHODS, SERVER_ENDPOINT_V1 } from "@/constants/constants";
 import { handleResponse } from "@/libs/mapper";
-import { PasswordChangeLayload, UserPayload } from "@/types/payloads";
+import {  UserPayload } from "@/types/payloads";
 import { LoginPayload, RegisterPayload } from "@/types/payloads";
 
 export default async function authenticate(payload: LoginPayload) {
