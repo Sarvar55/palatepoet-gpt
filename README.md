@@ -1,104 +1,51 @@
-# Recipe API Documentation
+# PalatePoet GPT
 
-## Overview
-The Recipe service provides a RESTful API for managing culinary recipes. It allows users to save, retrieve, and delete recipes, including details such as ingredients, instructions, cooking time, and nutritional macros. This service is designed to work in conjunction with the PalatePoet GPT front-end to provide a seamless recipe management experience.
+PalatePoet GPT, kullanıcıların yemek pişirme deneyimini dijitalleştirerek kişiselleştirilmiş tarifler oluşturmalarına ve yönetmelerine olanak tanıyan tam kapsamlı (full-stack) bir web uygulamasıdır. Bu proje, kullanıcıların mutfaktaki yaratıcılığını desteklemek ve sağlıklı beslenme hedeflerine ulaşmalarını kolaylaştırmak amacıyla geliştirilmiştir.
 
-## API
+## Biz Hangi Sorunu Çözüyoruz?
 
-### 1. Save Recipe
-Saves a new recipe to the database.
+Modern dünyada insanlar sağlıklı ve lezzetli yemek tariflerine ulaşmakta zorluk çekmiyorlar, ancak **kişiselleştirilmiş** ve **yönetilebilir** bir deneyim bulmak hala büyük bir sorun. PalatePoet GPT:
+- Karmaşık içerik listelerini ve talimatlarını düzenli bir yapıda sunar.
+- Kullanıcıların kendi damak tadına ve diyet hedeflerine uygun tarifleri saklamasını sağlar.
+- Besin değerlerini (makroları) takip ederek sağlıklı yaşam sürecini destekler.
+- Dağınık tarif notlarını, her yerden erişilebilir dijital bir kütüphaneye dönüştürür.
 
-- **URL:** `/v1/recipe`
-- **Method:** `POST`
-- **Request Body:** `RecipePayload`
-- **Success Response:** `BaseResponse<Void>`
+## Tech Stack
 
-#### Example Request:
-```json
-{
-  "userId": 1,
-  "title": "Spaghetti Carbonara",
-  "cookingTime": 20,
-  "calories": 600,
-  "difficulty": "MEDIUM",
-  "macros": {
-    "protein": 25,
-    "fat": 30,
-    "carbs": 60
-  },
-  "ingredients": [
-    { "name": "Spaghetti", "amount": "200g" },
-    { "name": "Eggs", "amount": "2" }
-  ],
-  "instructions": [
-    { "step": 1, "description": "Boil pasta." },
-    { "step": 2, "description": "Mix eggs and cheese." }
-  ]
-}
-```
+Projemiz, modern yazılım prensiplerine sadık kalınarak katmanlı bir mimari (Layered Architecture) ile inşa edilmiştir.
 
-### 2. Delete Recipe
-Deletes a recipe by its ID.
+### Back-End (Java & Spring Boot)
+- **Spring Boot 3 & Java 21:** Uygulamanın çekirdek framework'ü.
+- **MyBatis:** SQL sorguları üzerinde tam kontrol sağlamak ve veri tabanı işlemlerini optimize etmek için kullanıldı.
+- **Liquibase:** Veri tabanı şeması üzerindeki değişiklikleri (migrations) yönetmek ve versiyonlamak için kullanıldı. Bu sayede tüm ortamlarda (dev, test, prod) veri tabanı tutarlılığı sağlanır.
+- **PostgreSQL:** İlişkisel veri tabanı olarak tercih edildi.
+- **Spring Security & JWT:** Kullanıcı yetkilendirme ve güvenli session yönetimi için.
+- **Lombok:** Boilerplate kodları azaltarak okunabilirliği artırmak için.
+- **Swagger/OpenAPI:** API dokümantasyonu ve test edilebilirliği için.
 
-- **URL:** `/v1/recipe/{recipeId}`
-- **Method:** `DELETE`
-- **Path Parameters:** `recipeId` (Long)
-- **Success Response:** `BaseResponse<Void>`
+### Front-End (Next.js & TypeScript)
+- **Next.js:** Hızlı, SEO dostu ve modern bir kullanıcı deneyimi sunmak için.
+- **TypeScript:** Tip güvenliği sağlayarak hataları geliştirme aşamasında yakalamak için.
+- **Tailwind CSS:** Hızlı ve özelleştirilebilir bir UI tasarımı için.
 
-### 3. Get Recipes by User
-Retrieves all recipes saved by a specific user.
+## Mimari Yaklaşımlar ve Nedenleri
 
-- **URL:** `/v1/users/{userId}/recipes`
-- **Method:** `GET`
-- **Path Parameters:** `userId` (Long)
-- **Success Response:** `BaseResponse<List<RecipeResponse>>`
+### 1. Tutarlılık İçin Özel Response Modelleri
+Tüm API yanıtlarında standart bir yapı sağlamak amacıyla `BaseResponse` modelini tasarladık. Bu yaklaşım:
+- Ön yüz (front-end) geliştirmesinde hata yönetimini standartlaştırır.
+- Başarılı ve başarısız tüm senaryolarda istemciye neyin döndüğünü net bir şekilde bildirir (`meta` objesi ile).
 
-## Usage
+### 2. Cache Mekanizması
+Performansı artırmak ve veri tutarlılığını sağlamak için Cache yapısı entegre edildi:
+- **DB Sorgu Optimizasyonu:** Sık erişilen ancak nadir değişen verilerin veri tabanından tekrar tekrar çekilmesini önler.
+- **Blacklisting:** Güvenlik katmanında, geçersiz kılınmış (revoked) token'ları tutarak sistemin güvenliğini API seviyesinde korur.
 
-### Java Client Example (Rest Template)
-```java
-RecipePayload payload = RecipePayload.builder()
-    .userId(1L)
-    .title("Omelette")
-    .cookingTime(10)
-    .build();
+### 3. Katmanlı Mimari (Separation of Concerns)
+Kod bazımız Controller, Service ve Repository katmanlarına ayrılmıştır. Bu sayede:
+- İş mantığı (Business Logic) sadece servis katmanında toplanır.
+- Kodun test edilebilirliği artar.
+- Yeni özellikler eklemek projenin genel yapısını bozmadan mümkün hale gelir.
 
-BaseResponse<Void> response = restTemplate.postForObject("/v1/recipe", payload, BaseResponse.class);
-```
+## Başlangıç
 
-### TypeScript/Next.js Example
-```typescript
-const fetchRecipes = async (userId: number) => {
-  const res = await fetch(`/api/v1/users/${userId}/recipes`);
-  const data = await res.json();
-  return data.data; // List of RecipeResponse
-};
-```
-
-## Configuration
-
-The service behavior can be configured in `application.yaml`:
-
-| Property | Default | Description |
-|----------|---------|-------------|
-| `spring.profiles.active` | `local` | Active Spring profile (local, dev, prod) |
-| `mybatis.mapper-locations` | `classpath:mybatis/mappers/*.xml` | Location of MyBatis XML mappers |
-| `liquibase.enabled` | `true` | Enables/disables database migrations |
-
-## Error Handling
-
-Standard error responses follow the `BaseResponse` structure:
-```json
-{
-  "status": "BAD_REQUEST",
-  "meta": {
-    "key": "ERROR_KEY",
-    "message": "Human readable error message"
-  }
-}
-```
-
-### Common Errors:
-- `404 Not Found`: Occurs when a recipe or user does not exist.
-- `400 Bad Request`: Occurs when the `RecipePayload` fails validation (e.g., missing title).
-- `401 Unauthorized`: Occurs when the request lacks a valid JWT token (handled by `AuthorizationFilter`).
+Projeyi yerelinizde çalıştırmak için `front_end` ve `back_end` klasörlerindeki README dosyalarını inceleyebilirsiniz.
